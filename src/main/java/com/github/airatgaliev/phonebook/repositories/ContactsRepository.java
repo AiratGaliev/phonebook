@@ -1,19 +1,20 @@
 package com.github.airatgaliev.phonebook.repositories;
 
-import com.github.airatgaliev.phonebook.entities.ContactType;
 import com.github.airatgaliev.phonebook.entities.Contacts;
-import com.github.airatgaliev.phonebook.entities.Person;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ContactsRepository extends CrudRepository<Contacts, Long> {
 
   Contacts findContactsById(Long id);
 
-  Iterable<Contacts> findAll();
+  List<Contacts> findAll();
 
-  Iterable<Contacts> findContactsByContactType(ContactType contactType);
+  List<Contacts> findContactsByContactType_TypeOrPerson_Position(String type, String position);
 
-  Iterable<Contacts> findContactsByPerson(Person person);
+  List<Contacts> findContactsByContactType_TypeAndPerson_Position(String type, String position);
 
   void delete(Contacts contacts);
 }
