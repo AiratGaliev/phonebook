@@ -27,7 +27,7 @@ public class Contacts implements Serializable {
   @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
   @JoinColumn(name = "contact_type_id", nullable = false)
   private ContactType contactType;
-  @Column(nullable = false, updatable = false, unique = true)
+  @Column(nullable = false, unique = true)
   private String number;
 
   public Contacts() {

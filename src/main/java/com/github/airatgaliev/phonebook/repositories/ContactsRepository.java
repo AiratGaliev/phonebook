@@ -16,5 +16,5 @@ public interface ContactsRepository extends CrudRepository<Contacts, Long> {
 
   List<Contacts> findContactsByContactType_TypeAndPerson_Position(String type, String position);
 
-  void delete(Contacts contacts);
+  void deleteById(Contacts contacts);
 }

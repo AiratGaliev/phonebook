@@ -10,10 +10,30 @@ import javax.xml.bind.annotation.XmlElement;
 public interface IContactsService {
 
   @WebMethod
+  ContactsResponse getContacts(
+      @XmlElement(required = true) ContactsRequest contactsRequest);
+
+  @WebMethod
+  ContactsResponse getContactsById(
+      @XmlElement(required = true) ContactsRequest contactsRequest);
+
+  @WebMethod
   ContactsResponse getContactsByTypeOrPosition(
       @XmlElement(required = true) ContactsRequest contactsRequest);
 
   @WebMethod
   ContactsResponse getContactsByTypeAndPosition(
+      @XmlElement(required = true) ContactsRequest contactsRequest);
+
+  @WebMethod
+  ContactsResponse createContacts(
+      @XmlElement(required = true) ContactsRequest contactsRequest);
+
+  @WebMethod
+  ContactsResponse updateContacts(
+      @XmlElement(required = true) ContactsRequest contactsRequest);
+
+  @WebMethod
+  String deleteContacts(
       @XmlElement(required = true) ContactsRequest contactsRequest);
 }

@@ -26,7 +26,7 @@ public class ContactType implements Serializable {
   @Column(nullable = false, updatable = false, unique = true)
   private String type;
   @XmlTransient
-  @OneToMany(mappedBy = "contactType", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "contactType", cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
   private List<Contacts> contacts = new ArrayList<>();
 
   public ContactType() {

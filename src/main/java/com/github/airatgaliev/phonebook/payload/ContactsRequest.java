@@ -10,10 +10,54 @@ import javax.xml.bind.annotation.XmlType;
 public class ContactsRequest {
 
   @XmlElement
+  private Long id;
+
+  @XmlElement
+  private Long contactTypeId;
+
+  @XmlElement
+  private Long personId;
+
+  @XmlElement
+  private String number;
+
+  @XmlElement
   private String type;
 
   @XmlElement
   private String position;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Long getContactTypeId() {
+    return contactTypeId;
+  }
+
+  public void setContactTypeId(Long contactTypeId) {
+    this.contactTypeId = contactTypeId;
+  }
+
+  public Long getPersonId() {
+    return personId;
+  }
+
+  public void setPersonId(Long personId) {
+    this.personId = personId;
+  }
+
+  public String getNumber() {
+    return number;
+  }
+
+  public void setNumber(String number) {
+    this.number = number;
+  }
 
   public String getType() {
     return type;
