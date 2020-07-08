@@ -40,9 +40,9 @@ public class LoadDatabase {
     personRepository.save(person1);
     Person person2 = new Person("Ralf", "Hoe", "F", "tester");
     personRepository.save(person2);
-    ContactType contactType1 = new ContactType("Partner");
+    ContactType contactType1 = new ContactType("partner");
     contactTypeRepository.save(contactType1);
-    ContactType contactType2 = new ContactType("Vendor");
+    ContactType contactType2 = new ContactType("vendor");
     contactTypeRepository.save(contactType2);
     return args -> {
       LOGGER.info("Preloading " + contactsRepository
