@@ -1,13 +1,23 @@
 package com.github.airatgaliev.phonebook.entities;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlTransient;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-public class Person {
+public class Person implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +27,9 @@ public class Person {
   private String lastName;
   private String middleName;
   private String position;
+  @XmlTransient
+  @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  private List<Contacts> contacts = new ArrayList<>();
 
   public Person() {
   }
@@ -68,6 +81,14 @@ public class Person {
     this.position = position;
   }
 
+  public List<Contacts> getContacts() {
+    return contacts;
+  }
+
+  public void setContacts(List<Contacts> contacts) {
+    this.contacts = contacts;
+  }
+
   @Override
   public String toString() {
     return "Person{" +
@@ -76,6 +97,7 @@ public class Person {
         ", lastName='" + lastName + '\'' +
         ", middleName='" + middleName + '\'' +
         ", position='" + position + '\'' +
+        ", contacts=" + contacts +
         '}';
   }
 }
