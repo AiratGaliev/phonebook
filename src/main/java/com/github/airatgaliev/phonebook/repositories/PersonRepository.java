@@ -12,9 +12,11 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
   List<Person> findAll();
 
-  List<Person> findPersonByFirstNameOrLastNameOrMiddleName(String firstName, String lastName, String middleName);
+  List<Person> findPersonByFirstNameOrLastNameOrMiddleName(String firstName, String lastName,
+      String middleName);
 
-  List<Person> findPersonByFirstNameAndLastNameAndMiddleName(String firstName, String lastName, String middleName);
+  List<Person> findPersonByFirstNameAndLastNameAndMiddleName(String firstName, String lastName,
+      String middleName);
 
   void deleteById(Long id);
 }
