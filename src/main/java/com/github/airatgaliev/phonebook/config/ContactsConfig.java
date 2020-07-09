@@ -3,7 +3,9 @@ package com.github.airatgaliev.phonebook.config;
 import com.github.airatgaliev.phonebook.repositories.ContactTypeRepository;
 import com.github.airatgaliev.phonebook.repositories.ContactsRepository;
 import com.github.airatgaliev.phonebook.repositories.PersonRepository;
+import com.github.airatgaliev.phonebook.services.ContactTypeServiceImpl;
 import com.github.airatgaliev.phonebook.services.ContactsServiceImpl;
+import com.github.airatgaliev.phonebook.services.PersonServiceImpl;
 import javax.xml.ws.Endpoint;
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
@@ -35,6 +37,20 @@ public class ContactsConfig {
     Endpoint endpoint = new EndpointImpl(bus, new ContactsServiceImpl(contactsRepository,
         contactTypeRepository, personRepository));
     endpoint.publish("/Contacts");
+    return endpoint;
+  }
+
+  @Bean
+  public Endpoint getContactTypeEndpoint() {
+    Endpoint endpoint = new EndpointImpl(bus, new ContactTypeServiceImpl(contactTypeRepository));
+    endpoint.publish("/ContactType");
+    return endpoint;
+  }
+
+  @Bean
+  public Endpoint getPersonEndpoint() {
+    Endpoint endpoint = new EndpointImpl(bus, new PersonServiceImpl(personRepository));
+    endpoint.publish("/Person");
     return endpoint;
   }
 }
