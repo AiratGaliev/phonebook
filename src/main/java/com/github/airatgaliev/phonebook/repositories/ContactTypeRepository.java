@@ -10,9 +10,9 @@ public interface ContactTypeRepository extends CrudRepository<ContactType, Long>
 
   ContactType findContactTypeById(Long id);
 
-  ContactType findContactTypeByType(String typeName);
-
   List<ContactType> findAll();
 
-  void delete(ContactType contactType);
+  ContactType findContactTypeByType(String type);
+
+  void deleteById(Long id);
 }

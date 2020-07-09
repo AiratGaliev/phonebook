@@ -12,5 +12,9 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
   List<Person> findAll();
 
-  void delete(Person person);
+  List<Person> findPersonByFirstNameOrLastNameOrMiddleName(String firstName, String lastName, String middleName);
+
+  List<Person> findPersonByFirstNameAndLastNameAndMiddleName(String firstName, String lastName, String middleName);
+
+  void deleteById(Long id);
 }
