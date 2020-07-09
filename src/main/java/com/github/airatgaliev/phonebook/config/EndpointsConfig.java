@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ContactsConfig {
+public class EndpointsConfig {
 
   private final Bus bus;
   private final ContactsRepository contactsRepository;
@@ -22,7 +22,7 @@ public class ContactsConfig {
   private final PersonRepository personRepository;
 
   @Autowired
-  public ContactsConfig(Bus bus,
+  public EndpointsConfig(Bus bus,
       ContactsRepository contactsRepository,
       ContactTypeRepository contactTypeRepository,
       PersonRepository personRepository) {
