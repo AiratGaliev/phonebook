@@ -7,9 +7,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "ContactsResponse")
 public class ContactsResponse {
 
-  private List<Contacts> contactsList;
-
   private Contacts contacts;
+  private List<Contacts> contactsList;
 
   public List<Contacts> getContactsList() {
     return contactsList;

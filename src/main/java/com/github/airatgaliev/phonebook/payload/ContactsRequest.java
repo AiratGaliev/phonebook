@@ -11,19 +11,14 @@ public class ContactsRequest {
 
   @XmlElement
   private Long id;
-
   @XmlElement
   private Long contactTypeId;
-
   @XmlElement
   private Long personId;
-
   @XmlElement
   private String number;
-
   @XmlElement
   private String type;
-
   @XmlElement
   private String position;
 
