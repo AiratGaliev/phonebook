@@ -28,7 +28,7 @@ public class Person implements Serializable {
   private String middleName;
   private String position;
   @XmlTransient
-  @OneToMany(mappedBy = "person", cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Contacts> contacts = new ArrayList<>();
 
   public Person() {
